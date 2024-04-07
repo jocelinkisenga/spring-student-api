@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 public class StudentConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(StudentRepository studentRepository) {
+    CommandLineRunner commandLineRunner(StudentRepository repository) {
         return args -> {
             Student jocelin = new Student(
                     "jocelin kisenga",
@@ -28,8 +28,8 @@ public class StudentConfig {
                     "kisenga@gmail.com",
                     LocalDate.of(2000, MARCH, 25));
 
-        studentRepository.saveAll(
-            List.of(jocelin, shuka, kisenga);
+        repository.saveAll(
+            List.of(jocelin, shuka, kisenga)
             
         );
         };

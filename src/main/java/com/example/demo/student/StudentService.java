@@ -3,6 +3,7 @@ package com.example.demo.student;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -22,11 +23,20 @@ public class StudentService {
     public List<Student> getStudents() {
 
         return this.studentRepository.findAll();
-        // return List.of(
-        //         new Student((long) 1,
-        //                 "jocelin kisenga",
-        //                 "jocelin@gmail.com",
-        //                 LocalDate.of(2000, Month.MARCH, 25)));
+            
+    }
+
+
+    
+    public void addNewStudent(Student student)  {
+        Optional <Student> studentByEmail = this.studentRepository.findStudentByEmail(student.getEmail());
+
+        if(studentByEmail.isPresent()){
+            throw new IllegalStateException("email exists");
+        }
+
+        studentRepository.save(student);
+
     }
 
 }
