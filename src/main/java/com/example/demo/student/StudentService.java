@@ -4,6 +4,9 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class StudentService {
 
     public List<Student> getStudents() {
