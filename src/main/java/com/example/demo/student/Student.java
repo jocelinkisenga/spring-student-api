@@ -2,8 +2,22 @@ package com.example.demo.student;
 
 import java.time.LocalDate;
 
-public class Student {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 
+@Entity
+public class Student {
+    @Id
+    @SequenceGenerator(
+        name = "student_sequence",
+        sequenceName = "student_sequence",
+        allocationSize=1
+    )
+    @GeneratedValue(
+        
+    )
     private Long id;
     private String name;
     private String email;
