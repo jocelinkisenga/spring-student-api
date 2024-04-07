@@ -4,15 +4,8 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+public class StudentService {
 
-@RestController
-@RequestMapping(path = "api/v1/students")
-public class StudentController {
-
-    @GetMapping
     public List<Student> getStudents() {
         return List.of(
                 new Student((long) 1,
@@ -20,4 +13,5 @@ public class StudentController {
                         "jocelin@gmail.com",
                         LocalDate.of(2000, Month.MARCH, 25)));
     }
+
 }
